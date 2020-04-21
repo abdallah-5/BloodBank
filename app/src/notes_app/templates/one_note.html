@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static  %}
+    <!-- Start blog Area -->
+    {% block body %}
+        <section class="blog-area section-gap">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-8 pb-30 header-text">
+                <h1>{{note.title}}</h1>
+                <p>{{note.content}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="single-blog col-lg-10 col-md-10">
+
+                {% if note.img %}
+                      <img class="f-img img-fluid mx-auto" src="{{note.img.url}}" alt="">
+                {% endif %}
+                <p>  {{note.created|date:"j M"}} | {{note.tags}} | {{note.user.username}} |  </p>
+              </div>
+            </div>
+          </div>
+        </section>
+    {% endblock  %}
+
+    <!-- end blog Area -->

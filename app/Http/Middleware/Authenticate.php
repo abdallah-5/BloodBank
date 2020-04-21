@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
+
+class Authenticate extends Middleware
+{
+    /**
+     * Get the path the user should be redirected to when they are not authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string|null
+     */
+    protected function redirectTo($request)
+    {
+        if (! $request->expectsJson()) {
+            return route('login');
+        }
+    }
+    // protected function unauthenticated($request,  array )
+    // {
+    //     // api/v1/blood-types
+    //     dd('aaa');
+    //     return $request->is('api/*')
+    //         ? responseJeson(0,'Unauthenticated.')
+    //         : redirect()->guest($exception->redirectTo() ?? route('login'));
+    // }
+}

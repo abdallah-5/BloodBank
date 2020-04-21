@@ -1,0 +1,9 @@
+
+
+<a href="{% url 'notes:add_note'  %}">Add new note</a>
+<br>
+
+{% for note in all_notes %}
+  <a href="{% url 'notes:note_detail' note.slug %}">{{note}}</a>
+  <br>
+{% endfor %}
